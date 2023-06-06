@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Cirrhosis Prediction</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+		<input type="text" name="Drug" placeholder="Drug" required="required" />
+            <input type="text" name="Age" placeholder="Age" required="required" />
+            <input type="text" name="Sex" placeholder="Sex" required="required" />
+		<input type="text" name="Hepatomegaly" placeholder="Hepatomegaly" required="required" />
+            <input type="text" name="Spiders" placeholder="Spiders" required="required" />
+            <input type="text" name="Edema" placeholder="Edema" required="required" />
+		<input type="text" name="Bilirubin" placeholder="Bilirubin" required="required" />
+		<input type="text" name="Cholesterol" placeholder="Cholesterol" required="required" />
+            <input type="text" name="Albumin" placeholder="Albumin" required="required" />
+		<input type="text" name="Copper" placeholder="Copper" required="required" />
+            <input type="text" name="Alk_Phos" placeholder="Alk_Phos" required="required" />
+            <input type="text" name="SGOT" placeholder="SGOT" required="required" />
+		<input type="text" name="Tryglicerides" placeholder="Tryglicerides" required="required" />
+		<input type="text" name="Platelets" placeholder="Platelets" required="required" />
+            <input type="text" name="Prothrombin" placeholder="Prothrombin" required="required" />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+  
+
+ </div>
+<h3>If prediction is 1 Cirrhosis is present</h3>
+ <h3>If prediction is 0 Cirrhosis is not present</h3>
+<h3>Note</h3>
+<h4>Sex should be in this format                 # Male : 0 , Female :1</h4>
+<h4>Ascites should be in this format             # N : 0, Y : 1</h4>
+<h4>Drug should be in this format                # D-penicillamine : 0, Placebo : 1</h4>
+<h4>Hepatomegaly should be in this format        # N : 0, Y : 1</h4>
+<h4>Spiders should be in this forma              # N : 0, Y : 1</h4>
+<h4>Edema should be in this format               # N : 0, Y : 1, S : -1</h4>
+<h4>Status should be in this format     	       # C : 0, CL: 1, D : -1</h4>
+
+</body>
+</html>
